@@ -143,6 +143,7 @@ const hideMovieFuncSuccess = function(){
   $('#show2').hide()
   $('#create-movie').hide()
   $('#update-movie').hide()
+  $('#movieresult').hide()
 
 }
 
