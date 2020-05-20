@@ -1,0 +1,47 @@
+   <h6>Movie Id</h6>
+   <p>{{movie._id}}</p>
+    <h6>Title:</h6>
+    <h3>
+     {{movie.title}}
+   </h3>
+   <h6>Director id:</h6>
+   <p>
+     {{#if movie.director._id}}
+       {{movie.director._id}}
+     {{else}}
+       No director provided.
+     {{/if}}
+   </p>
+   <h6>Director Name:</h6>
+   <h3>
+     {{movie.director.firstName}} {{movie.director.lastName}}
+   </h3>
+   <h6>Created at:</h6>
+   <p>
+     {{movie.director.createdAt}}
+   </p>
+   <h6>Updated at</h6>
+   <p>{{movie.director.updatedAt}}</p>
+  <p>~~~~~~~~~~~~~~~~~~~~~~</p>
+   <!-- <h6>Comments</h6> -->
+   {{#each movie.comments as |comment|}}
+   <h6>Comment id:</h6>
+   <p>{{comment._id}}</p>
+   <h6>Comment title:</h6>
+   <p>{{comment.title}}</p>
+   <h6>Comment body:</h6>
+   <p>{{comment.body}}</p>
+   <h6>Commenter id:</h6>
+   <p>{{comment.commenter._id}}</p>
+   <h6>Commenter Name:</h6>
+   <p>{{comment.commenter.firstName}} {{comment.commenter.lastName}}</p>
+   <h6>Created at:</h6>
+   <p>
+     {{comment.createdAt}}
+   </p>
+   <h6>Updated at:</h6>
+   <p>{{comment.updatedAt}}</p>
+  <p>------------------------------</p>
+   {{/each}}
+
+   <button data-id="{{movie.id}}" class='removebtn  btn btn-danger'>Delete Movie</button>

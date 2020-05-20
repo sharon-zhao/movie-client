@@ -1,0 +1,35 @@
+
+.scrolling-box {
+  background-color: #eaeaea;
+  display: block;
+  height: 25rem;
+  overflow-y: scroll;
+  text-align: center;
+  padding: 1rem;
+  width: 20rem;
+}
+
+
+
+
+  main {
+    @include make-container;
+    @include make-container-max-widths;
+
+    #infomovietitle {
+      @include make-row;
+      display: flex;
+      flex-wrap: wrap;
+      &:empty {
+        &::before {
+          color: lighten($info, 25%);
+          content: 'Click Get Books';
+          font-size: 10vh;
+          line-height: .85;
+          border: 1px solid;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }

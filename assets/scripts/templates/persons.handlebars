@@ -1,0 +1,13 @@
+
+    <h6>Person Id</h6>
+    <p>
+      {{#if person._id}}
+      {{person._id}}
+      {{else}}
+         {{person.id}}
+      {{/if}}
+    </p>
+    <h6>Name:</h6>
+    <h3>
+      {{person.firstName}} {{person.lastName}}
+    </h3>

@@ -1,0 +1,29 @@
+<!-- <div style="flex-wrap: wrap"> -->
+
+{{#each persons as |person|}}
+
+<section style="width:33%" data-id="{{person._id}}">
+  <div class = "card" style="width: 90%; border: 1px solid;">
+  <div class="card-body" >
+
+<h6>Person Id</h6>
+<p>
+  {{#if person._id}}
+  {{person._id}}
+  {{else}}
+     {{person.id}}
+  {{/if}}
+</p>
+<h6>Name:</h6>
+<h3>
+  {{person.firstName}} {{person.lastName}}
+</h3>
+<button data-id="{{person._id}}" class='removebtnper  btn btn-danger'>Delete Person</button>
+<p>**************************</p>
+
+</div>
+</div>
+</section>
+
+{{/each}}
+<!-- </div> -->
