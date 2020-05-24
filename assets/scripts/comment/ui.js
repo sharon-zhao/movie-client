@@ -4,7 +4,7 @@ const store = require('../store')
 const commentTemplate = require('../templates/comment.handlebars')
 const showMovieTemplate = require('../templates/showmovie.handlebars')
 const updateCommentTemplate = require('../templates/updatecomment.handlebars')
-
+const movieEvent = require('./../movie/event')
 
  $('#add-comments').hide()
  $('#comments').hide()
@@ -48,11 +48,12 @@ const createCommentSuccess = function(data){
   // $('#comments').text(JSON.stringify(data))
   $('#message').text('create comments success').css('color','green')
   $('form').trigger('reset')
+  movieEvent.onShowMovie()
 }
 
 const createCommentFailure = function(error){
   $('#message').show()
-  $('#message').text('create comments failed').css('color','green')
+  $('#message').text('create comments failed').css('color','red')
   $('form').trigger('reset')
 }
 
@@ -63,9 +64,16 @@ const showDeleteCommentSuccess = function(){
 const deleteCommentSuccess = function(commentid){
   $('#message').show()
   $('#deletecomment').show()
-  $('#message').text('destroy movie success').css('color','green')
+  $('#message').text('destroy comment success').css('color','green')
   $('#deletecomment').text("deleted")
   $(`section[data-id=${commentid}]`).remove()
+  movieEvent.onShowMovie()
+
+}
+
+const deleteCommentFailure = function() {
+  $('#deletecomment').show()
+  $('#deletecomment').text("Sorry, you are not the owner of this comment, you can't delete it").css('color','red')
 }
 
 const showUpdateCommentSuccess = function(){
@@ -76,21 +84,24 @@ const updateCommentSuccess = function(data){
   $('#item-3-2').show()
   $('#updatecomments').show()
   $('#message').show()
-  $('#message').text('update movie success').css('color','green')
+  $('#message').text('update comment success').css('color','green')
   $('#updatecomments').html(updateCommentTemplate({ comment: data.comment}))
   // $('#updatecomments').text(JSON.stringify(data))
   $('form').trigger('reset')
+  movieEvent.onShowMovie()
+
 }
 
 const updateCommentFailure = function(error){
   $('#message').show()
-  $('#message').text('update movie failed').css('color','green')
+  $('#message').text('update comment failed').css('color','red')
 }
 
 const hideCommentFuncSuccess = function(){
   $('#show3').hide()
   $('#add-comments').hide()
   $('#update-comments').hide()
+  $('#commentresult').hide()
 }
 
 module.exports = {
@@ -103,6 +114,7 @@ module.exports = {
   showUpdateCommentSuccess,
   updateCommentSuccess,
   updateCommentFailure,
-  hideCommentFuncSuccess
+  hideCommentFuncSuccess,
+  deleteCommentFailure
 
 }

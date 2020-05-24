@@ -1,8 +1,5 @@
 const store = require('../store')
 
-$('#start-button').hide()
-$('.container').hide()
-$('.number').hide()
 $('#sign-up').hide()
 $('#sign-in').hide()
 $('#change-password').hide()
@@ -97,6 +94,14 @@ const signOutSuccess = function (data){
    $('#mess').addClass('Success')
    store.user = null
    $('form').trigger('reset')
+   $('#change-password').hide()
+   $('#sign-out').hide()
+   $('#navbar3').hide()
+   $('#navbarDropdown').hide()
+   $('#navbar4').hide()
+   $('#show-movie').hide()
+   $('.bd-example-command').hide()
+   $('#hideimage').hide()
 }
 
 const signOutFailure = function (error){

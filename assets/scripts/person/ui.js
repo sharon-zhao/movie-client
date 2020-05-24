@@ -3,6 +3,7 @@
 const store = require('../store')
 const showPersonTemplate = require('../templates/persons.handlebars')
 const showAllPersonTemplate = require('../templates/allperson.handlebars')
+const api = require('./api')
 
  $('#info').hide()
  $('#message').hide()
@@ -43,7 +44,7 @@ const hidePersonSuccess = function(){
 
 const showPersonFailure = function(error){
  $('#message').show()
- $('#message').text('show person failed').css('color','green')
+ $('#message').text('show person failed').css('color','red')
  $('form').trigger('reset')
 }
 
@@ -86,11 +87,13 @@ const createPersonSuccess = function(data){
   $('#message').text('create person success').css('color','green')
   $('#item-1-2').show()
   $('form').trigger('reset')
+  api.showAllPerson()
+  .then(showPersonSuccess)
 }
 
 const createPersonFailure = function(error){
   $('#message').show()
-  $('#message').text('create person failed').css('color','green')
+  $('#message').text('create person failed').css('color','red')
   $('form').trigger('reset')
 }
 
@@ -107,12 +110,16 @@ const personDestroySuccess = function(throwaway, personid){
   $('#message').text('destroy person success').css('color','green')
   $(`section[data-id=${personid}]`).remove()
   $('form').trigger('reset')
+  api.showAllPerson()
+  .then(showPersonSuccess)
+
 }
 
 const personDestroyFailure = function(data){
   $('#message').show()
-  $('#deletepersons').text(JSON.stringify(data))
-  $('#message').text('delete person failed').css('color','green')
+  $('#deletepersons').show()
+  $('#deletepersons').text('Sorry, you are not the owner of this person, you can not delete it').css('color' ,'red')
+  $('#message').text('delete person failed').css('color','red')
   $('form').trigger('reset')
 }
 
@@ -134,12 +141,14 @@ const personUpdateSuccess = function(data){
   // $('#updatepersons').text(JSON.stringify(data))
   $('#message').text('update person by id success').css('color','green')
   $('form').trigger('reset')
+  api.showAllPerson()
+  .then(showPersonSuccess)
 
 }
 
 const personUpdateFailure = function(data){
 $('#message').show()
-$('#message').text('update person by id failed').css('color','green')
+$('#message').text('update person by id failed').css('color','red')
 $('form').trigger('reset')
 }
 
@@ -165,7 +174,7 @@ const personShowSuccess = function(data){
 const personShowFailure = function(data){
   $('#message').show()
   // $('#deletepersons').text(JSON.stringify(data))
-  $('#message').text('show person by id failed').css('color','green')
+  $('#message').text('show person by id failed').css('color','red')
   $('form').trigger('reset')
 }
 

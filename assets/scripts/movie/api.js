@@ -2,11 +2,13 @@
 const config = require('../config')
 const store = require('../store')
 
-
 const showMovie = function(){
   return $.ajax({
    url:config.apiUrl + '/movies',
-   method: 'GET'
+   method: 'GET',
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -16,14 +18,20 @@ const createMovie = function(data){
    url:config.apiUrl + '/movies',
    method: 'POST',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const deleteMovie = function(id){
   return $.ajax({
    url:config.apiUrl + '/movies/' + id,
-   method: 'DELETE'
+   method: 'DELETE',
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -32,7 +40,10 @@ const updateMovie = function(data){
    url:config.apiUrl + '/movies/' + data.movie.id,
    method: 'PATCH',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -41,7 +52,10 @@ const movieShow = function(data){
    url:config.apiUrl + '/movies/' + data.movie.id,
    method: 'GET',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 

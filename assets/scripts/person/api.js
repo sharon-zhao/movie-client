@@ -5,7 +5,10 @@ const store = require('../store')
 const showAllPerson = function(){
   return $.ajax({
    url:config.apiUrl + '/persons',
-   method: 'GET'
+   method: 'GET',
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -15,14 +18,20 @@ const createPerson = function(data){
    url:config.apiUrl + '/persons',
    method: 'POST',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const destroyPerson = function(id){
   return $.ajax({
    url:config.apiUrl + '/persons/' + id,
-   method: 'DELETE'
+   method: 'DELETE',
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -31,7 +40,10 @@ const showPerson = function(id){
    url:config.apiUrl + '/persons/' + id,
    method: 'GET',
    contentType:'application/json',
-   data:JSON.stringify(id)
+   data:JSON.stringify(id),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -40,7 +52,10 @@ const updatePerson = function(data){
    url:config.apiUrl + '/persons/' + data.person.id,
    method: 'PATCH',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 

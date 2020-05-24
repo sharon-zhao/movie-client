@@ -4,6 +4,7 @@ const store = require('../store')
 const createMovieTemplate = require('../templates/createmovie.handlebars')
 const showMovieTemplate = require('../templates/showmovie.handlebars')
 const commentTemplate = require('../templates/comment.handlebars')
+const updateMovieTemplate = require('../templates/updatemovie.handlebars')
 
  $('#info').hide()
  $('#message').hide()
@@ -46,7 +47,7 @@ const hideMovieSuccess = function(){
 
 const showMovieFailure = function(error){
  $('#message').show()
- $('#message').text('show movie failed').css('color','green')
+ $('#message').text('show movie failed').css('color','red')
  $('form').trigger('reset')
 }
 
@@ -65,7 +66,6 @@ const createMovieSuccess = function(data){
   $('#item-2-1').show()
   $('#message').show()
   $('#createmovie').show()
- console.log(data.movie)
   const createMoviesHtml = createMovieTemplate({ movie: data.movie })
   $('#createmovie').html(createMoviesHtml)
   // $('#createmovie').text(JSON.stringify(data))
@@ -75,7 +75,7 @@ const createMovieSuccess = function(data){
 
 const createMovieFailure = function(error){
   $('#message').show()
-  $('#message').text('create movie failed').css('color','green')
+  $('#message').text('create movie failed').css('color','red')
   $('form').trigger('reset')
 }
 
@@ -94,7 +94,7 @@ const deleteMovieSuccess = function(throwaway, movieid){
 }
 
 const deleteMovieFailure = function(){
-  $('#message').text('destroy movie failed').css('color','green')
+  $('#message').text('destroy movie failed').css('color','red')
 }
 
 const showUpdateMovieSuccess = function(){
@@ -105,8 +105,8 @@ const movieUpdateSuccess = function(data){
   $('#message').show()
   $('#updatemovie').show()
   $('#item-2-3').show()
-  const createMoviesHtml = createMovieTemplate({ movie: data.movie })
-  $('#updatemovie').html(createMoviesHtml)
+  const updateMoviesHtml = updateMovieTemplate({ movie: data.movie })
+  $('#updatemovie').html(updateMoviesHtml)
   // $('#updatemovie').text(JSON.stringify(data))
   $('#message').text('update movie by id success').css('color','green')
   $('form').trigger('reset')
@@ -114,7 +114,7 @@ const movieUpdateSuccess = function(data){
 
 const movieUpdateFailure = function(data){
 $('#message').show()
-$('#message').text('update movie by id failed').css('color','green')
+$('#message').text('update movie by id failed').css('color','red')
 $('form').trigger('reset')
 }
 
@@ -136,7 +136,7 @@ const movieShowSuccess = function (data){
 
 const movieShowFailure = function(data){
   $('#message').show()
-  $('#message').text('show movie by id failed').css('color','green')
+  $('#message').text('show movie by id failed').css('color','red')
 }
 
 const hideMovieFuncSuccess = function(){

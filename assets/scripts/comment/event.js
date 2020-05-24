@@ -38,7 +38,7 @@ const onDeleteComment = function(event){
   event.preventDefault()
   const id = $(event.target).data('id')
   api.deleteComment(id)
-   .then(ui.deleteCommentSuccess(id))
+   .then(ui.deleteCommentSuccess)
    .catch(ui.deleteCommentFailure)
 }
 

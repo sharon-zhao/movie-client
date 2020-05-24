@@ -9,7 +9,10 @@ const createComment = function(data){
    url:config.apiUrl + '/comments',
    method: 'POST',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -23,7 +26,10 @@ const createComment = function(data){
 const deleteComment = function(commentid){
   return $.ajax({
    url:config.apiUrl + '/comments/' + commentid,
-   method: 'DELETE'
+   method: 'DELETE',
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -32,7 +38,10 @@ const updateComment = function(data){
    url:config.apiUrl + '/comments/' + data.comment.movie_id + '/' + data.comment.comment_id,
    method: 'PATCH',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
