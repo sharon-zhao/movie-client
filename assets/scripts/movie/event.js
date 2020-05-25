@@ -2,8 +2,18 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
-
+const showMyMovies = function(event){
+  const myId = store.user._id
+  api.showMovie()
+  .then(data => {
+    const movies = data.movies
+    return movies.filter(movie => movie.author === myId)
+  })
+  .then(movie => ui.showMyMoviesSuccess(movie))
+  .catch(ui.showMyMoviesFailure)
+}
 
 const onShowMovie = function(event){
   api.showMovie()
@@ -72,13 +82,25 @@ const showShowMovie = function(event){
  ui.showShowMovieSuccess()
 }
 
+// const onMovieShow = function(event){
+//   event.preventDefault()
+//   const form = event.target
+//   const formData = getFormFields(form)
+//   api.movieShow(formData)
+//    .then(ui.movieShowSuccess)
+//    .catch(ui.movieShowFailure)
+// }
+
 const onMovieShow = function(event){
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
-  api.movieShow(formData)
-   .then(ui.movieShowSuccess)
+  const movieTitle = formData.movie.title.toUpperCase()
+  api.showMovie()
+   .then(data =>
+     data.movies.filter(movie => movie.title.toUpperCase() == movieTitle)
+   )
+   .then(movie =>ui.movieShowSuccess(movie))
    .catch(ui.movieShowFailure)
 }
 
@@ -101,6 +123,7 @@ module.exports = {
   onUpdateMovie,
   showShowMovie,
   onMovieShow,
-  hideMovieFunc
+  hideMovieFunc,
+  showMyMovies
 
 }

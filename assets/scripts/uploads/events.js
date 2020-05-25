@@ -5,7 +5,6 @@ const api = require('./api')
 const onGetImage = function(event){
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log(id)
   api.getImage(id)
 
 }
@@ -21,19 +20,6 @@ const onCreateUpload = function (event) {
     .catch(ui.onCreateUploadFailure)
 }
 
-const onStayUpload = function(){
-  let filePath = $(this).val()
-  let  fileFormat= filePath.substring(filePath.lastIndexOf(".")).toLowerCase()
-  let  src = window.URL.createObjectURL(this.files[0])
-
-        	if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
-        		error_prompt_alert('format must be：png/jpg/jpeg');
-            	return;
-            }
-
-         $('#cropedBigImg').attr('src',src)
-
-}
 
 const onShowImage = function(){
   api.showImage()
@@ -44,7 +30,6 @@ const onShowImage = function(){
 
 module.exports = {
   onCreateUpload,
-  onStayUpload,
   onShowImage,
   onGetImage
 }

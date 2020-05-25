@@ -18,7 +18,7 @@ const movieEvent = require('./../movie/event')
  $('#update-movie').hide()
  $('#item-2-3').hide()
  $('#updatemovie').hide()
- $('#show-movie').hide()
+ // $('#show-movie').hide()
  $('#item-2-4').hide()
  $('#showmovie').hide()
  $('#delete-comment').hide()
@@ -65,7 +65,7 @@ const deleteCommentSuccess = function(commentid){
   $('#message').show()
   $('#deletecomment').show()
   $('#message').text('destroy comment success').css('color','green')
-  $('#deletecomment').text("deleted")
+  $('#deletecomment').text("Delete your comment success!").css('color','green')
   $(`section[data-id=${commentid}]`).remove()
   movieEvent.onShowMovie()
 
@@ -93,8 +93,8 @@ const updateCommentSuccess = function(data){
 }
 
 const updateCommentFailure = function(error){
-  $('#message').show()
-  $('#message').text('update comment failed').css('color','red')
+  $('#updatecommentfail').show()
+  $('#updatecommentfail').text('You can not update comments which are not yours').css('color','red')
 }
 
 const hideCommentFuncSuccess = function(){

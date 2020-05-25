@@ -1,9 +1,14 @@
 const config = require('../config')
+const store = require('../store')
+
 const createUpload = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/uploads',
     method: 'POST',
     data: formData,
+    headers: {
+       Authorization: 'Token token=' + store.user.token
+     },
     // To send multipart/form-data, set the contentType to false
     // so $.ajax does not set the content type itself
     contentType: false,
@@ -16,17 +21,22 @@ const createUpload = function (formData) {
 const showImage = function(){
   return $.ajax({
    url:config.apiUrl + '/uploads',
-   method: 'GET'
+   method: 'GET',
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const getImage = function(data){
-  console.log(data)
   return $.ajax({
    url:config.apiUrl + '/uploads/' + data,
    method: 'GET',
    contentType:'application/json',
-   data:JSON.stringify(data)
+   data:JSON.stringify(data),
+   headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 

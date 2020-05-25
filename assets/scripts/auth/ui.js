@@ -7,10 +7,10 @@ $('#sign-out').hide()
 $('#navbar3').hide()
 $('#navbarDropdown').hide()
 $('#navbar4').hide()
-$('#show-movie').hide()
+// $('#show-movie').hide()
 $('.bd-example-command').hide()
 $('#hideimage').hide()
-
+$('#navbar5').hide()
 
 const showSignUpSuccess = function(){
 $('#sign-up').show()
@@ -53,7 +53,9 @@ const signInSuccess = function (data){
    $('#sign-up').hide()
    $('.bd-example-command').show()
    $('#hideimage').show()
-
+   $('#navbar1').hide()
+   $('#navbar2').hide()
+   $('#navbar5').show()
 
 }
 

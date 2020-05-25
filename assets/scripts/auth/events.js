@@ -61,7 +61,6 @@ const onUploadFile = function(event) {
   const data = new FormData(form)
 
   for ( let i of data) {
-    console.log(i)
   }
   api.uploadFile(data)
     .then(ui.onUploadFileSuccess)

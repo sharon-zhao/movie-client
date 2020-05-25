@@ -5,6 +5,8 @@ const createMovieTemplate = require('../templates/createmovie.handlebars')
 const showMovieTemplate = require('../templates/showmovie.handlebars')
 const commentTemplate = require('../templates/comment.handlebars')
 const updateMovieTemplate = require('../templates/updatemovie.handlebars')
+const movieEvent = require('./event')
+const api = require('./api')
 
  $('#info').hide()
  $('#message').hide()
@@ -28,7 +30,13 @@ const updateMovieTemplate = require('../templates/updatemovie.handlebars')
  $('#item-2-4').hide()
  $('#showmovie').hide()
 
-
+const showMyMoviesSuccess = function(data){
+  $('message').show()
+  $('message').text('Your movies')
+  $('#infomovietitle').show()
+  const showMyMoviesHtml = showMoviesTemplate({ movies: data })
+  $('#infomovietitle').html(showMyMoviesHtml)
+}
 
 const showMovieSuccess = function(data) {
   const showMoviesHtml = showMoviesTemplate({ movies: data.movies })
@@ -71,6 +79,9 @@ const createMovieSuccess = function(data){
   // $('#createmovie').text(JSON.stringify(data))
   $('#message').text('create movie success').css('color','green')
   $('form').trigger('reset')
+  api.showMovie()
+   .then(ui.showMovieSuccess)
+
 }
 
 const createMovieFailure = function(error){
@@ -91,6 +102,9 @@ const deleteMovieSuccess = function(throwaway, movieid){
   $('#message').show()
   $('#message').text('destroy movie success').css('color','green')
   $(`section[data-id=${movieid}]`).remove()
+  api.showMovie()
+   .then(ui.showMovieSuccess)
+
 }
 
 const deleteMovieFailure = function(){
@@ -110,11 +124,13 @@ const movieUpdateSuccess = function(data){
   // $('#updatemovie').text(JSON.stringify(data))
   $('#message').text('update movie by id success').css('color','green')
   $('form').trigger('reset')
+  api.showMovie()
+   .then(ui.showMovieSuccess)
 }
 
 const movieUpdateFailure = function(data){
 $('#message').show()
-$('#message').text('update movie by id failed').css('color','red')
+$('#message').text('You cannot update this movie, it is not yours').css('color','red')
 $('form').trigger('reset')
 }
 
@@ -123,12 +139,11 @@ const showShowMovieSuccess = function(){
 }
 
 const movieShowSuccess = function (data){
-  console.log(data.movie)
   $('#item-2-4').show()
   $('#showmovie').show()
   $('#message').show()
   $('#message').text('show movie by id success').css('color','green')
-  const showMovieHtml = showMovieTemplate ({ movie: data.movie })
+  const showMovieHtml = showMovieTemplate ({ movie: data[0] })
   $('#showmovie').html(showMovieHtml)
   // $('#showmovie').text(JSON.stringify(data))
   $('form').trigger('reset')
@@ -167,6 +182,7 @@ module.exports = {
   movieShowSuccess,
   movieShowFailure,
   showAllBook,
-  hideMovieFuncSuccess
+  hideMovieFuncSuccess,
+  showMyMoviesSuccess
 
 }

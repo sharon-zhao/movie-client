@@ -16,6 +16,7 @@ $(() => {
 $('#navbar1').on('click', authEvents.showSignUp)
 $('#navbar2').on('click', authEvents.showSignIn)
 $('#navbar3').on('click', authEvents.showChangePassword)
+$('#navbar5').on('click', movieEvents.showMyMovies)
 
 
 
