@@ -10,7 +10,7 @@
 <body class="only" translate="no" class="vsc-initialized">
 <div class="scrolling-box">
 <section>
-<img src="try.jpg" class="card-img-top" alt="dog">
+<img src="https://toddsharon.s3.amazonaws.com/34a9fba7439c35e4e27f9ea2222269cf" class="card-img-top" alt="dog">
     <h6>Movie Id</h6>
     <p>{{movie._id}}</p>
     <h6>Title:</h6>
@@ -45,10 +45,8 @@
     <p>{{comment.title}}</p>
     <h6>Comment body:</h6>
     <p>{{comment.body}}</p>
-    <h6>Commenter id:</h6>
-    <p>{{comment.commenter._id}}</p>
     <h6>Commenter Name:</h6>
-    <p>{{comment.commenter.firstName}} {{comment.commenter.lastName}}</p>
+    <p>{{comment.commenter}}</p>
     <h6>Created at:</h6>
     <p>
       {{comment.createdAt}}

@@ -17,7 +17,7 @@ $('#sign-up').show()
 }
 
 const signUpSuccess = function (data){
-   $('#mess').text('Signed up Successfully')
+   $('#mess').text('Signed up Successfully').css('color', 'green')
    $('#mess').removeClass()
    $('#mess').addClass('Success')
    $('#sign-up').hide()
@@ -28,7 +28,7 @@ const signUpSuccess = function (data){
 }
 const signUpFailure = function (error){
 
-   $('#mess').text('Signed up failed')
+   $('#mess').text('Signed up failed').css('color', 'red')
    $('#mess').removeClass()
    $('#mess').addClass('failure')
    // $('form').trigger('reset')
@@ -40,7 +40,7 @@ const showSignInSuccess = function(){
 
 const signInSuccess = function (data){
 
-   $('#mess').text('Signed in Successfully')
+   $('#mess').text('Signed in Successfully').css('color', 'green')
    $('#mess').removeClass()
    $('#mess').addClass('Success')
    store.user = data.user
@@ -61,7 +61,7 @@ const signInSuccess = function (data){
 
 const signInFailure = function (error){
 
-   $('#mess').text('Signed in failed')
+   $('#mess').text('Signed in failed').css('color', 'red')
    $('#mess').removeClass()
    $('#mess').addClass('failure')
    $('form').trigger('reset')
@@ -73,7 +73,7 @@ const showChangePasswordSuccess =function(){
 
 const changePasswordSuccess = function (data){
 
-   $('#mess').text('changed password in Successfully')
+   $('#mess').text('changed password in Successfully').css('color', 'green')
    $('#mess').removeClass()
    $('#mess').addClass('Success')
    $('form').trigger('reset')
@@ -82,7 +82,7 @@ const changePasswordSuccess = function (data){
 }
 const changePasswordFailure = function (error){
 
-   $('#mess').text('change Password failed')
+   $('#mess').text('change Password failed').css('color', 'red')
    $('#mess').removeClass()
    $('#mess').addClass('failure')
    $('form').trigger('reset')
@@ -91,7 +91,7 @@ const changePasswordFailure = function (error){
 
 
 const signOutSuccess = function (data){
-   $('#mess').text('sign out Successfully')
+   $('#mess').text('sign out Successfully').css('color', 'green')
    $('#mess').removeClass()
    $('#mess').addClass('Success')
    store.user = null
@@ -104,11 +104,14 @@ const signOutSuccess = function (data){
    $('#show-movie').hide()
    $('.bd-example-command').hide()
    $('#hideimage').hide()
+   $('#navbar5').hide()
+   $('#navbar1').show()
+   $('#navbar2').show()
 }
 
 const signOutFailure = function (error){
 
-   $('#mess').text('sign out failed')
+   $('#mess').text('sign out failed').css('color', 'red')
    $('#mess').removeClass()
    $('#mess').addClass('failure')
 

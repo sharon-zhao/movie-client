@@ -10,6 +10,7 @@ const api = require('./api')
 
  $('#info').hide()
  $('#message').hide()
+ $('#2message').hide()
  $('#infomovietitle').hide()
  $('#item-2-1').hide()
  $('#create-movie').hide()
@@ -30,6 +31,7 @@ const api = require('./api')
  $('#item-2-4').hide()
  $('#showmovie').hide()
 
+
 const showMyMoviesSuccess = function(data){
   $('message').show()
   $('message').text('Your movies')
@@ -43,8 +45,8 @@ const showMovieSuccess = function(data) {
   $('#infomovietitle').html(showMoviesHtml)
   $('#infomovietitle').show()
   // $('#infomovietitle').text(JSON.stringify(data))
-  $('#message').show()
-  $('#message').text('show movie success').css('color','green')
+  $('#2message').show()
+  $('#2message').text('show movie success').css('color','green')
   $('form').trigger('reset')
 }
 
@@ -54,8 +56,8 @@ const hideMovieSuccess = function(){
 }
 
 const showMovieFailure = function(error){
- $('#message').show()
- $('#message').text('show movie failed').css('color','red')
+ $('#2message').show()
+ $('#2message').text('show movie failed').css('color','red')
  $('form').trigger('reset')
 }
 
@@ -80,7 +82,7 @@ const createMovieSuccess = function(data){
   $('#message').text('create movie success').css('color','green')
   $('form').trigger('reset')
   api.showMovie()
-   .then(ui.showMovieSuccess)
+   .then(showMovieSuccess)
 
 }
 
@@ -103,12 +105,12 @@ const deleteMovieSuccess = function(throwaway, movieid){
   $('#message').text('destroy movie success').css('color','green')
   $(`section[data-id=${movieid}]`).remove()
   api.showMovie()
-   .then(ui.showMovieSuccess)
+   .then(showMovieSuccess)
 
 }
 
 const deleteMovieFailure = function(){
-  $('#message').text('destroy movie failed').css('color','red')
+  $('#deletemovie').text('destroy movie failed, unauthenticated').css('color','red')
 }
 
 const showUpdateMovieSuccess = function(){
@@ -125,7 +127,7 @@ const movieUpdateSuccess = function(data){
   $('#message').text('update movie by id success').css('color','green')
   $('form').trigger('reset')
   api.showMovie()
-   .then(ui.showMovieSuccess)
+   .then(showMovieSuccess)
 }
 
 const movieUpdateFailure = function(data){

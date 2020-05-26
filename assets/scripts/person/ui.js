@@ -7,6 +7,7 @@ const api = require('./api')
 
  $('#info').hide()
  $('#message').hide()
+ $('#2message').hide()
  $('#infomovietitle').hide()
  $('#create-person').hide()
  $('#item-1-2').hide()
@@ -30,8 +31,8 @@ const api = require('./api')
 
 const showPersonSuccess = function(data){
    $('#info').show()
-   $('#message').show()
-   $('#message').text('show person success').css('color','green')
+   $('#2message').show()
+   $('#2message').text('show person success').css('color','green')
    const showPeopleHtml = showAllPersonTemplate({ persons: data.person })
    $('#info').html(showPeopleHtml)
 }

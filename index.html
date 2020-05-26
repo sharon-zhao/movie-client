@@ -120,6 +120,7 @@
 
 
 <div class="bd-example-command">
+
   <div class="row">
     <div class="col-4">
       <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column">
@@ -157,8 +158,9 @@
     </div>
 
     <div class="col-8">
-      <div data-spy="scroll" data-target="#navbar-example3" data-offset="1" class="scrollspy-example-2">
+      <div data-spy="scrolling-box" data-target="#navbar-example3" data-offset="1" class="scrollspy-example-2">
         <h4 id="message"></h4>
+        <h5 id = "2message"></h5>
         <p id="updatecommentfail"></p>
         <form id="create-person">
           <input required type="text" placeholder="First Name" name="person[firstName]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:15px;">
@@ -198,6 +200,7 @@
         <form id="add-comments">
           <input required type="text" placeholder="Comment Title" name="comment[title]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:15px;">
           <div><input required type="text" placeholder="Comment Body" name="comment[body]" style="width:250px;height:40px; margin-bottom:15px;"></div>
+          <div><input required type="text" placeholder="Commenter name " name="comment[commenter]" style="width:250px;height:40px; margin-bottom:15px;"></div>
           <div><input required type="text" placeholder="Movie ID" name="comment[movie_id]" style="width:250px;height:40px; margin-bottom:15px;"></div>
           <div><button type="submit" class="btn btn-info">Create Comment</button></div>
           </form>
