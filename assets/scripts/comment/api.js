@@ -34,11 +34,14 @@ const deleteComment = function(commentid){
 }
 
 const updateComment = function(data){
+  const movieid = data.comment.movie_id
+  const commentid = data.comment.comment_id
+  delete data.comment.comment_id
+  delete data.comment.movie_id
   return $.ajax({
-   url:config.apiUrl + '/comments/' + data.comment.movie_id + '/' + data.comment.comment_id,
+   url:config.apiUrl + '/comments/' + movieid + '/' + commentid,
    method: 'PATCH',
-   contentType:'application/json',
-   data:JSON.stringify(data),
+   data: data,
    headers: {
       Authorization: 'Token token=' + store.user.token
     }

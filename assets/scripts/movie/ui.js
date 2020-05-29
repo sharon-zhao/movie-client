@@ -18,9 +18,6 @@ const api = require('./api')
  $('#add-comments').hide()
  $('#comments').hide()
  $('#item-3').hide()
- $('#show1').hide()
- $('#show2').hide()
- $('#show3').hide()
  $('#delete-movie').hide()
  $('#item-2-2').hide()
  $('#deletemovie').hide()
@@ -63,9 +60,7 @@ const showMovieFailure = function(error){
 
 
 //movie function
-const showAllBook = function(){
-  $('#show2').show()
-}
+
 
 const showCreateMovieSuccess = function(){
   $('#create-movie').show()
@@ -153,17 +148,15 @@ const movieShowSuccess = function (data){
 
 const movieShowFailure = function(data){
   $('#message').show()
-  $('#message').text('show movie by id failed').css('color','red')
+  $('#message').text('Sorry cannot find your movie').css('color','red')
 }
 
 const hideMovieFuncSuccess = function(){
-  $('#show2').hide()
   $('#create-movie').hide()
   $('#update-movie').hide()
   $('#movieresult').hide()
 
 }
-
 
 
 module.exports = {
@@ -183,8 +176,6 @@ module.exports = {
   showShowMovieSuccess,
   movieShowSuccess,
   movieShowFailure,
-  showAllBook,
-  hideMovieFuncSuccess,
-  showMyMoviesSuccess
-
+  showMyMoviesSuccess,
+  hideMovieFuncSuccess
 }

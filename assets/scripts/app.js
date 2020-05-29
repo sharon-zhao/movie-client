@@ -32,24 +32,10 @@ $('#chooseImage').on('change', uploadEvents.onStayUpload)
 $('#changeBG').on('click', uploadEvents.onShowImage)
 $('#infomovietitle').on('click', '.imagebtn', uploadEvents.onGetImage)
 
-  //about person
-$('#it1').on('click', personEvents.showAllPersonFunction)
-$('#person').on('click',personEvents.onShowPerson)
-$('#hideperson').on('click', personEvents.hidePerson)
-$('#create-person').on('submit',personEvents.onCreatePerson)
-$('#item1').on('click',personEvents.personCreate)
-$('#hidepersonbar').on('click',personEvents.personHideBar)
-$('#delete-peoples').on('click',personEvents.personDestroyShow)
-$('#show-person').on('submit',personEvents.personShow)
-$('#show-peoples').on('click',personEvents.givePerson)
-$('#update-person').on('submit',personEvents.personUpdate)
-$('#update-peoples').on('click',personEvents.upPerson)
-$('#info').on('click', '.removebtnper', personEvents.personDestroy)
 
 //about movies
 $('#movie').on('click', movieEvents.onShowMovie)
 $('#hidemovie').on('click', movieEvents.hideMovie)
-$('#it2').on('click', movieEvents.showAllBookFunction)
 $('#create-movies').on('click', movieEvents.showCreateMovie)
 $('#create-movie').on('submit', movieEvents.onCreateMovie)
 $('#delete-movies').on('click', movieEvents.showDeleteMovie)
@@ -61,7 +47,6 @@ $('#infomovietitle').on('click', '.removebtn', movieEvents.onDeleteMovie)
 $('#hidemoviefunc').on('click', movieEvents.hideMovieFunc)
 
 //about comments
-$('#it3').on('click', commentEvents.showAllCommentFunction)
 $('#create-comments').on('click', commentEvents.showCreateComment)
 $('#add-comments').on('submit', commentEvents.onCreateComment)
 $('#destroycomment').on('click', commentEvents.showDeleteComment)

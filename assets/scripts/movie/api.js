@@ -39,8 +39,7 @@ const updateMovie = function(data){
   return $.ajax({
    url:config.apiUrl + '/movies/' + data.movie.id,
    method: 'PATCH',
-   contentType:'application/json',
-   data:JSON.stringify(data),
+   data: data,
    headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -51,8 +50,7 @@ const movieShow = function(data){
   return $.ajax({
    url:config.apiUrl + '/movies/' + data.movie.id,
    method: 'GET',
-   contentType:'application/json',
-   data:JSON.stringify(data),
+   data: data,
    headers: {
       Authorization: 'Token token=' + store.user.token
     }

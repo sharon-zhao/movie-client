@@ -22,11 +22,6 @@ const api = require('./api')
  $('#item-1-5').hide()
  $('#showpersons').hide()
  $('#item-2-1').hide()
- $('#show1').hide()
- $('#show2').hide()
- $('#show3').hide()
-
-
 
 
 const showPersonSuccess = function(data){

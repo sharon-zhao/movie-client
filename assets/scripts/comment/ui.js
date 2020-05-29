@@ -9,9 +9,6 @@ const movieEvent = require('./../movie/event')
  $('#add-comments').hide()
  $('#comments').hide()
  $('#item-3').hide()
- $('#show1').hide()
- $('#show2').hide()
- $('#show3').hide()
  $('#delete-movie').hide()
  $('#item-2-2').hide()
  $('#deletemovie').hide()
@@ -80,16 +77,21 @@ const showUpdateCommentSuccess = function(){
     $('#update-comments').show()
 }
 
-const updateCommentSuccess = function(data){
-  $('#item-3-2').show()
-  $('#updatecomments').show()
-  $('#message').show()
-  $('#message').text('update comment success').css('color','green')
-  $('#updatecomments').html(updateCommentTemplate({ comment: data.comment}))
-  // $('#updatecomments').text(JSON.stringify(data))
-  $('form').trigger('reset')
-  movieEvent.onShowMovie()
+// const updateCommentSuccess = function(data){
+//   $('#item-3-2').show()
+//   $('#updatecomments').show()
+//   $('#message').show()
+//   $('#updatecommentfail').text('update comment success').css('color','green')
+//   $('#updatecomments').html(updateCommentTemplate({ comment: data.comment}))
+//   // $('#updatecomments').text(JSON.stringify(data))
+//   $('form').trigger('reset')
+//   movieEvent.onShowMovie()
+// }
 
+const updateCommentSuccess = function(data){
+  $('#message').show()
+  $('#updatecommentfail').text('update comment success, see below movies').css('color','green')
+  movieEvent.onShowMovie()
 }
 
 const updateCommentFailure = function(error){
@@ -98,7 +100,6 @@ const updateCommentFailure = function(error){
 }
 
 const hideCommentFuncSuccess = function(){
-  $('#show3').hide()
   $('#add-comments').hide()
   $('#update-comments').hide()
   $('#commentresult').hide()

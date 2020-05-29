@@ -37,10 +37,10 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a id = "movie" class="dropdown-item" href="#">Get All Movie</a>
-                <a id = "person" class="dropdown-item" href="#">Get All Person</a>
+
                 <div class="dropdown-divider"></div>
                 <a id = "hidemovie" class="dropdown-item" href="#">hide Movie</a>
-                <a id = "hideperson" class="dropdown-item" href="#">hide Person</a>
+
               </div>
             </li>
             <li class="nav-item">
@@ -120,22 +120,14 @@
 
 
 <div class="bd-example-command">
-
+  <h4 id="message"></h4>
+  <h5 id = "2message"></h5>
+  <p id="updatecommentfail"></p>
   <div class="row">
     <div class="col-4">
       <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column">
         <a class="navbar-brand" href="#">All you command</a>
-
         <nav  class="nav nav-pills flex-column">
-          <a id = "it1" class="nav-link active" href="#item-1">Person</a>
-         <div class = "hidecreatepersons">
-          <nav id = "show1" class="nav nav-pills flex-column">
-            <a id = "item1" class="nav-link" href="#item-1">Create Person</a>
-            <a id = "update-peoples" class="nav-link ml-3 my-1" href="#item-1-3">Update Person</a>
-           <a id = "show-peoples" class="nav-link ml-3 my-1" href="#item-1-4">Show Person</a>
-                       <a id= "hidepersonbar" class="nav-link ml-3 my-1" href="#item-1-1">hide person</a>
-          </nav>
-          </div>
 
           <a id ="it2" class="nav-link active" href="#item-2">Movie</a>
           <nav id = "show2" class="nav nav-pills flex-column">
@@ -153,38 +145,19 @@
           <a id = "hidecomment" class="nav-link ml-3 my-1" href="#item-3-1">Hide comment</a>
           </nav>
 
-        </nav>
+      </nav>
       </nav>
     </div>
 
     <div class="col-8">
-      <div data-spy="scrolling-box" data-target="#navbar-example3" data-offset="1" class="scrollspy-example-2">
-        <h4 id="message"></h4>
+      <div data-spy="scrolling-box" data-target="#navbar-example3" data-offset="1" class="scrolling-box" style="background:rgba(255,255,255,0.6);">
+        <!-- <h4 id="message"></h4>
         <h5 id = "2message"></h5>
-        <p id="updatecommentfail"></p>
-        <form id="create-person">
-          <input required type="text" placeholder="First Name" name="person[firstName]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:15px;">
-          <div><input required type="text" placeholder="Last Name" name="person[lastName]" style="width:250px;height:40px; margin-bottom:15px;"></div>
-          <div><button id = "createpeople" type="submit" class="btn btn-info">Create Person</button></div>
-       </form>
-
-
-        <form id = "update-person">
-        <input required type="text" placeholder="Person ID" name="person[id]" style="width:250px;height:40px; margin-top: 10px; margin-bottom:5px;">
-         <div><input required type="text" placeholder="First Name" name="person[firstName]" style="width:250px;height:40px; margin-top: 10px; margin-bottom:5px;"></div>
-        <input required type="text" placeholder="Last Name" name="person[lastName]" style="width:250px;height:40px; margin-top: 10px; margin-bottom:5px;">
-         <div><button type="submit" class="btn btn-info">Update Person</button></div>
-        </form>
-
-        <form id = "show-person">
-        <input required type="text" placeholder="Person ID" name="person[id]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:15px;">
-        <div><button type="submit" class="btn btn-info">Show Person</button></div>
-        </form>
-
+        <p id="updatecommentfail"></p> -->
 
         <form id="create-movie">
           <input required type="text" placeholder="Movie Title" name="movie[title]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:15px;">
-          <div><input required type="text" placeholder="Person ID" name="movie[director]" style="width:250px;height:40px; margin-bottom:15px;"></div>
+          <div><input required type="text" placeholder="Director name" name="movie[director]" style="width:250px;height:40px; margin-bottom:15px;"></div>
           <div><button id = "createmovies" type="submit" class="btn btn-info">Create Movie</button></div>
         </form>
 
@@ -192,7 +165,7 @@
         <form id="update-movie">
           <input required type="text" placeholder="Movie ID" name="movie[id]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:10px;">
           <div><input required type="text" placeholder="Movie Title" name="movie[title]" style="width:250px;height:40px; margin-bottom:10px;"></div>
-          <div><input required type="text" placeholder="Director ID" name="movie[director]" style="width:250px;height:40px; margin-bottom:10px;"></div>
+          <div><input required type="text" placeholder="Director name" name="movie[director]" style="width:250px;height:40px; margin-bottom:10px;"></div>
           <div><button id = "updatemovies" type="submit" class="btn btn-info">Update Movie</button></div>
         </form>
 
@@ -209,6 +182,7 @@
        <form id="update-comments">
          <input required type="text" placeholder="Comment Title" name="comment[title]" style="width:250px;height:40px; margin-top: 10px; margin-bottom:5px;">
          <div><input required type="text" placeholder="Comment Body" name="comment[body]" style="width:250px;height:40px; margin-bottom:10px;"></div>
+         <div><input required type="text" placeholder="Commenter" name="comment[commenter]" style="width:250px;height:40px; margin-bottom:10px;"></div>
          <div><input required type="text" placeholder="Movie ID" name="comment[movie_id]" style="width:250px;height:40px; margin-bottom:10px;"></div>
          <input required type="text" placeholder="Comment ID" name="comment[comment_id]" style="width:250px;height:40px; margin-bottom:10px;">
          <div><button type="submit" class="btn btn-info">Update Comment</button></div>
@@ -218,16 +192,9 @@
 
 
     <div class = "try">
-      <div id="peopleresult" style="background:rgba(255,255,255,0.6);">
-      <h5 id="item-1-2">Create Person Result</h5>
-      <p id="createpersons"></p>
-      <h5 id="item-1-4"> Update Person Result</h5>
-      <p id="updatepersons"></p>
-      <h5 id="item-1-5">Show Person Result</h5>
-      <p class = "small" id="showpersons"></p>
-</div>
-
-<div id="movieresult" style="background:rgba(255,255,255,0.6);">
+      <body class="only" translate="no" class="vsc-initialized" >
+      <div class="scrolling-box" style="background:rgba(255,255,255,0.6);">
+<div id="movieresult" >
       <h5 id="item-2-1">Create Movie Result</h5>
       <p id = "createmovie"></p>
       <h5 id="item-2-3">Update Movie Result</h5>
@@ -236,22 +203,21 @@
       <p id = "showmovie"></p>
 </div>
 
-<div id="commentresult" style="background:rgba(255,255,255,0.6);">
+<div id="commentresult" >
      <h5 id="item-3">Create Comment Result</h5>
      <p id = "comments"></p>
 
      <h5 id="item-3-2">Update Comment Result</h5>
      <p id = "updatecomments"></p>
     </div>
-
+</div>
   </div>
-
+</body>
 </div>
 <!-- </div>
 </div> -->
 
-       <h5 id="item-1-3">Destroy Person Result</h5>
-       <p id="deletepersons"></p>
+
        <h5 id="info"></h5>
        <h5 id="item-2-2">Destroy Movie Result</h5>
        <p id = "deletemovie"></p>

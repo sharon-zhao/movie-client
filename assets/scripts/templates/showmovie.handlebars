@@ -9,24 +9,10 @@
     <h3>
      {{movie.title}}
    </h3>
-   <h6>Director id:</h6>
-   <p>
-     {{#if movie.director._id}}
-       {{movie.director._id}}
-     {{else}}
-       No director provided.
-     {{/if}}
-   </p>
    <h6>Director Name:</h6>
    <h3>
-     {{movie.director.firstName}} {{movie.director.lastName}}
+     {{movie.director}}
    </h3>
-   <h6>Created at:</h6>
-   <p>
-     {{movie.director.createdAt}}
-   </p>
-   <h6>Updated at</h6>
-   <p>{{movie.director.updatedAt}}</p>
   <p>~~~~~~~~~~~~~~~~~~~~~~</p>
    <!-- <h6>Comments</h6> -->
    {{#each movie.comments as |comment|}}

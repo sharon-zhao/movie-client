@@ -51,7 +51,7 @@ const onUpdateComment = function(event){
   const form = event.target
   const formData = getFormFields(form)
   api.updateComment(formData)
-   .then(ui.updateCommentSuccess(formData))
+   .then(ui.updateCommentSuccess)
    .catch(ui.updateCommentFailure)
 }
 

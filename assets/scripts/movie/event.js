@@ -26,10 +26,6 @@ const hideMovie = function(event){
 
 
 
-const showAllBookFunction = function(){
-  ui.showAllBook()
-}
-
 const showCreateMovie = function(){
   ui.showCreateMovieSuccess()
 }
@@ -74,7 +70,8 @@ const onUpdateMovie = function(event){
   const form = event.target
   const formData = getFormFields(form)
   api.updateMovie(formData)
-   .then(ui.movieUpdateSuccess(formData))
+  // .then(data => console.log(data))
+   .then(ui.movieUpdateSuccess)
    .catch(ui.movieUpdateFailure)
 }
 
@@ -100,8 +97,13 @@ const onMovieShow = function(event){
    .then(data =>
      data.movies.filter(movie => movie.title.toUpperCase() == movieTitle)
    )
-   .then(movie =>ui.movieShowSuccess(movie))
-   .catch(ui.movieShowFailure)
+   .then(movie =>{
+     if (movie.length === 0){
+       return ui.movieShowFailure(movie)
+
+   } else{
+      return ui.movieShowSuccess(movie)
+   }})
 }
 
 const hideMovieFunc = function(event){
@@ -114,7 +116,6 @@ module.exports = {
 
   onShowMovie,
   hideMovie,
-  showAllBookFunction,
   showCreateMovie,
   onCreateMovie,
   showDeleteMovie,
