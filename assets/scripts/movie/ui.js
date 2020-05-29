@@ -105,6 +105,7 @@ const deleteMovieSuccess = function(throwaway, movieid){
 }
 
 const deleteMovieFailure = function(){
+  $('#deletemovie').show()
   $('#deletemovie').text('destroy movie failed, unauthenticated').css('color','red')
 }
 
@@ -136,7 +137,6 @@ const showShowMovieSuccess = function(){
 }
 
 const movieShowSuccess = function (data){
-  console.log(data)
   $('#item-2-4').show()
   $('#showmovie').show()
   $('#message').show()
