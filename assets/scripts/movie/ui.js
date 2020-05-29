@@ -136,6 +136,7 @@ const showShowMovieSuccess = function(){
 }
 
 const movieShowSuccess = function (data){
+  console.log(data)
   $('#item-2-4').show()
   $('#showmovie').show()
   $('#message').show()

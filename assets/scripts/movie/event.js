@@ -71,7 +71,7 @@ const onUpdateMovie = function(event){
   const formData = getFormFields(form)
   api.updateMovie(formData)
   // .then(data => console.log(data))
-   .then(ui.movieUpdateSuccess)
+   .then(ui.movieUpdateSuccess(formData))
    .catch(ui.movieUpdateFailure)
 }
 

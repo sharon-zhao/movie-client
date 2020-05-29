@@ -59,9 +59,7 @@ const showDeleteCommentSuccess = function(){
 }
 
 const deleteCommentSuccess = function(commentid){
-  $('#message').show()
   $('#deletecomment').show()
-  $('#message').text('destroy comment success').css('color','green')
   $('#deletecomment').text("Delete your comment success!").css('color','green')
   $(`section[data-id=${commentid}]`).remove()
   movieEvent.onShowMovie()
@@ -88,7 +86,7 @@ const showUpdateCommentSuccess = function(){
 //   movieEvent.onShowMovie()
 // }
 
-const updateCommentSuccess = function(data){
+const updateCommentSuccess = function(){
   $('#message').show()
   $('#updatecommentfail').text('update comment success, see below movies').css('color','green')
   movieEvent.onShowMovie()
