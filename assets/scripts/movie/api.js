@@ -18,7 +18,7 @@ const createMovie = function(data){
    url:config.apiUrl + '/movies',
    method: 'POST',
    contentType:'application/json',
-   data:JSON.stringify(data),
+   data:JSON.stringify(data)
    headers: {
       Authorization: 'Token token=' + store.user.token
     }
