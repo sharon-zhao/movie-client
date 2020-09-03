@@ -25,11 +25,29 @@ const onSignIn = function(event){
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  // const formData = {
+  //   credentials: {
+  //     email:'shary@f',
+  //     password:'f'
+  //   }
+  // }
   api.signIn(formData)
    .then(ui.signInSuccess)
    .catch(ui.signInFailure)
 
 
+}
+const test = function(event){
+  event.preventDefault()
+  const formData = {
+    credentials: {
+      email:'shary@f',
+      password:'f'
+    }
+  }
+  api.signIn(formData)
+   .then(ui.signInSuccess)
+   .catch(ui.signInFailure)
 }
 
 const showChangePassword = function(event){
@@ -76,5 +94,6 @@ module.exports = {
   showSignUp,
   showSignIn,
   showChangePassword,
+  test
 
 }

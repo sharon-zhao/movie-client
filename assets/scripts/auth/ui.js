@@ -56,6 +56,7 @@ const signInSuccess = function (data){
    $('#navbar1').hide()
    $('#navbar2').hide()
    $('#navbar5').show()
+   $('#test').hide()
 
 }
 
@@ -107,6 +108,8 @@ const signOutSuccess = function (data){
    $('#navbar5').hide()
    $('#navbar1').show()
    $('#navbar2').show()
+   $('#test').show()
+
 }
 
 const signOutFailure = function (error){
