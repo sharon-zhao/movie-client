@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Movie Library</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <h1 id="title">Movies Library</h1>
+
+
+      <div class="bd-example-bar">
+      <nav  id = "belowtitle" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a id = "navbar1" style="color:blue;" class="navbar-brand" href="#">Sign Up</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a id="navbar2" class="nav-link" href="#">Sign In <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a id="test" class="nav-link" href="#">Test Account<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a id ="navbar3" class="nav-link" href="#">Change Password</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a id = "movie" class="dropdown-item" href="#">Get All Movie</a>
+
+                <div class="dropdown-divider"></div>
+                <a id = "hidemovie" class="dropdown-item" href="#">hide Movie</a>
+
+              </div>
+            </li>
+            <li class="nav-item">
+              <a id="navbar5" class="nav-link" href="#" tabindex="-1">Show my movies</a>
+            </li>
+            <li class="nav-item">
+              <a id="navbar4" class="nav-link" href="#" tabindex="-1">Sign Out</a>
+            </li>
+          </ul>
+          <form id="show-movie" class="form-inline my-2 my-lg-0">
+            <input style="width:250px" class="form-control mr-sm-2" type="search" placeholder="Movie Title" name="movie[title]" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Movies</button>
+          </form>
+        </div>
+      </nav>
+      </div>
+
+
+
+
+     <h5 style="margin-left:1rem" id= "mess"></h5>
+      <div id="unauthenticated">
+        <form id="sign-up">
+          <div>
+              <input required type="email" placeholder="User Email" name="credentials[email]" style="width:230px;height:35px; margin-bottom:15px; margin-top:15px">
+          </div>
+           <div>
+             <input required type="password" placeholder="User Password" name="credentials[password]" style="width:230px;height:35px; margin-bottom:15px;">
+           </div>
+           <div>
+               <input required type="password" placeholder="User Password Confirm" name="credentials[password_confirmation]" style="width:230px;height:35px; margin-bottom:15px;">
+          </div>
+           <div>
+             <button type="submit" class="btn btn-info">Sign Up</button>
+           </div>
+        </form>
+
+        <form id="sign-in">
+              <input required type="email" placeholder="Email" name="credentials[email]" style="width:220px;height:35px; margin-top: 30px; margin-bottom:15px;">
+           <div><input required type="password" placeholder="Password" name="credentials[password]" style="width:220px;height:35px; margin-bottom:15px;"></div>
+
+           <div><button style="margin-bottom:1rem;" type="submit" class="btn btn-info">Sign In</button></div>
+        </form>
+      </div>
+
+
+      <div id="authenticated">
+        <form id="change-password">
+              <input required type="text" placeholder="old password" name="passwords[old]" style="width:250px;height:40px; margin-bottom:15px;">
+        <div><input required type="text" placeholder="new password" name="passwords[new]" style="width:250px;height:40px; margin-bottom:15px;"></div>
+       <div><button id = "word" type="submit" class="btn btn-info">Change Password</button></div>
+
+        </form>
+
+      <div id="unauthenticated">
+        <form id="sign-out">
+           <div><button id = "out" type="submit" class="btn btn-info" style="margin-top:20px;">Sign Out</button></div>
+        </form>
+           </div>
+        </div>
+
+<div id="hideimage">
+<h5 style="margin-left:1rem; color:#4a32a8">change background</h5>
+<div id="image">
+  <form id="create-upload" style="max-width:66%" enctype="multipart/form-data">
+    <input style="margin-left:1rem;" type='text' name='title' placeholder='Title'>
+    <input id="chooseImage" type='file' name='file' style="width:240px">
+    <button style="border-radius: 10px; border-color: white;">Upload Image</button>
+  </form>
+    <button style="margin-left:0.5rem" id="changeBG">Change</button>
+      <div id="messages">
+      <p id="showimagemessage"></p>
+      </div>
+</div>
+</div>
+
+
+
+<div class="bd-example-command">
+  <h4 id="message"></h4>
+  <h5 id = "2message"></h5>
+  <p id="updatecommentfail"></p>
+  <div class="row">
+    <div class="col-4">
+      <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column">
+        <a class="navbar-brand" href="#">All you command</a>
+        <nav  class="nav nav-pills flex-column">
+
+          <a id ="it2" class="nav-link active" href="#item-2">Movie</a>
+          <nav id = "show2" class="nav nav-pills flex-column">
+          <a id ="create-movies" class="nav-link" href="#item-2">Create Movie</a>
+          <a id = "update-movies" class="nav-link ml-3 my-1" href="#item-2-3">Update Movie</a>
+                    <a id= "hidemoviefunc" class="nav-link ml-3 my-1" href="#item-2-1">hide movie</a>
+          <!-- <a id = "show-movies" class="nav-link ml-3 my-1" href="#item-2-4">Show Movie</a> -->
+        </nav>
+<!-- </div> -->
+
+          <a id = "it3" class="nav-link active" href="#item-3">Comment</a>
+          <nav id = "show3" class="nav nav-pills flex-column">
+          <a id = "create-comments" class="nav-link" href="#item-3">Create Comment</a>
+          <!-- <a id = "updatecomment" class="nav-link ml-3 my-1" href="#item-3-1">Update Comment</a> -->
+          <a id = "hidecomment" class="nav-link ml-3 my-1" href="#item-3-1">Hide comment</a>
+          </nav>
+
+      </nav>
+      </nav>
+    </div>
+
+    <div class="col-8">
+      <div data-spy="scrolling-box" data-target="#navbar-example3" data-offset="1" class="scrolling-box" style="background:rgba(255,255,255,0.6);">
+        <!-- <h4 id="message"></h4>
+        <h5 id = "2message"></h5>
+        <p id="updatecommentfail"></p> -->
+
+        <form id="create-movie">
+          <input required type="text" placeholder="Movie Title" name="movie[title]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:15px;">
+          <div><input required type="text" placeholder="Director name" name="movie[director]" style="width:250px;height:40px; margin-bottom:15px;"></div>
+          <div><button id = "createmovies" type="submit" class="btn btn-info">Create Movie</button></div>
+        </form>
+
+
+        <form id="update-movie">
+          <input required type="text" placeholder="Movie ID" name="movie[id]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:10px;">
+          <div><input required type="text" placeholder="Movie Title" name="movie[title]" style="width:250px;height:40px; margin-bottom:10px;"></div>
+          <div><input required type="text" placeholder="Director name" name="movie[director]" style="width:250px;height:40px; margin-bottom:10px;"></div>
+          <div><button id = "updatemovies" type="submit" class="btn btn-info">Update Movie</button></div>
+        </form>
+
+
+        <form id="add-comments">
+          <input required type="text" placeholder="Comment Title" name="comment[title]" style="width:250px;height:40px; margin-top: 30px; margin-bottom:15px;">
+          <div><input required type="text" placeholder="Comment Body" name="comment[body]" style="width:250px;height:40px; margin-bottom:15px;"></div>
+          <div><input required type="text" placeholder="Commenter name " name="comment[commenter]" style="width:250px;height:40px; margin-bottom:15px;"></div>
+          <div><input required type="text" placeholder="Movie ID" name="comment[movie_id]" style="width:250px;height:40px; margin-bottom:15px;"></div>
+          <div><button type="submit" class="btn btn-info">Create Comment</button></div>
+          </form>
+
+
+       <!-- <form id="update-comments">
+         <input required type="text" placeholder="Comment Title" name="comment[title]" style="width:250px;height:40px; margin-top: 10px; margin-bottom:5px;">
+         <div><input required type="text" placeholder="Comment Body" name="comment[body]" style="width:250px;height:40px; margin-bottom:10px;"></div>
+         <div><input required type="text" placeholder="Commenter" name="comment[commenter]" style="width:250px;height:40px; margin-bottom:10px;"></div>
+         <div><input required type="text" placeholder="Movie ID" name="comment[movie_id]" style="width:250px;height:40px; margin-bottom:10px;"></div>
+         <input required type="text" placeholder="Comment ID" name="comment[comment_id]" style="width:250px;height:40px; margin-bottom:10px;">
+         <div><button type="submit" class="btn btn-info">Update Comment</button></div>
+         </form> -->
+      </div>
+    </div>
+
+
+    <div class = "try">
+      <body class="only" translate="no" class="vsc-initialized" >
+      <div class="scrolling-box" style="background:rgba(255,255,255,0.6);">
+<div id="movieresult" >
+      <h5 id="item-2-1">Create Movie Result</h5>
+      <p id = "createmovie"></p>
+      <h5 id="item-2-3">Update Movie Result</h5>
+      <p id = "updatemovie"></p>
+      <h5 id="item-2-4">Show Movie Result</h5>
+      <p id = "showmovie"></p>
+</div>
+
+<div id="commentresult" >
+     <h5 id="item-3">Create Comment Result</h5>
+     <p id = "comments"></p>
+
+     <h5 id="item-3-2">Update Comment Result</h5>
+     <p id = "updatecomments"></p>
+    </div>
+</div>
+  </div>
+</body>
+</div>
+<!-- </div>
+</div> -->
+
+
+       <h5 id="info"></h5>
+       <h5 id="item-2-2">Destroy Movie Result</h5>
+       <p id = "deletemovie"></p>
+       <h5 id="item-3-1">Destroy Comment Result</h5>
+       <p id = "deletecomment"></p>
+       <div ><h5 id="infomovietitle"></h5></div>
+
+    </body>
+</html>
